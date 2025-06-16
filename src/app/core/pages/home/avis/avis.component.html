@@ -1,0 +1,73 @@
+<section class="avis-section">
+  <!-- Background Stars -->
+  <div class="stars-background">
+    <div class="star" *ngFor="let star of [].constructor(30)"></div>
+  </div>
+
+  <div class="container">
+    <!-- Hero Header -->
+    <div class="avis-hero">
+      <div class="hero-content animate-fade-in-up">
+        <div class="hero-badge">
+          <span class="badge-icon">⭐</span>
+          <span>Ils nous recommandent</span>
+        </div>
+        <h1 class="hero-title">
+          Ce que disent <span class="title-highlight">nos clients</span>
+        </h1>
+        <div class="rating-summary">
+          <div class="average-rating">
+            <span class="rating-value">{{ averageRating }}</span>
+            <span class="rating-stars">★★★★★</span>
+            <span class="rating-count">{{ totalReviews }} avis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="testimonials-grid">
+      <div
+        class="testimonial-card"
+        *ngFor="let testimonial of testimonials; let i = index"
+        [style.animation-delay.ms]="i * 150">
+
+        <!-- Rating Stars -->
+        <div class="testimonial-rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-service">{{ testimonial.service }}</span>
+        </div>
+
+        <!-- Testimonial Content -->
+        <div class="testimonial-content">
+          <p class="testimonial-text">"{{ testimonial.comment }}"</p>
+        </div>
+
+        <!-- Testimonial Author -->
+        <div class="testimonial-author">
+          <div class="author-info">
+            <span class="author-name">{{ testimonial.author }}</span>
+            <span class="author-location">{{ testimonial.location }}</span>
+          </div>
+          <span class="testimonial-date">{{ testimonial.date }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="avis-cta animate-slide-in-up">
+      <h3>Vous aussi, donnez votre avis</h3>
+      <p>Votre satisfaction est notre priorité absolue</p>
+      <div class="cta-buttons">
+        <a href="tel:+33412345678" class="cta-button phone">
+          <span class="cta-icon">📞</span>
+          <span>Appeler pour un service</span>
+        </a>
+        <button class="cta-button review">
+          <span class="cta-icon">✍️</span>
+          <span>Laisser un avis</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

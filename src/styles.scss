@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+// :root {
+//   --primary-color: #0a6ed1;
+//   --emergency-color: #e74c3c;
+//   --text-color: #333;
+//   --light-bg: #f8f9fa;
+//   --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+// }
+
+@font-face {
+  font-family: 'Inter var';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  font-family: 'Inter var', sans-serif;
+}
+
+html,
+body {
+  font-size: 12px;
+  // font-family: 'Inter var', sans-serif;
+  // margin: 0;
+  // padding: 0;
+  // min-height: 100%;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
+  // // background-color: white;
+  // scroll-behavior: smooth;
+}
+
+a{
+  cursor: pointer;
+}
+///////////////////
+
+// Load only required icons
+.pi {
+  font-family: primeicons !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+}
+
+// Include only icons you need
+.pi-check:before { content: "\e909"; }
+.pi-times:before { content: "\e90b"; }
+/* Add other icons as needed */
+/////////////////////
+
+
+// :target {
+//   scroll-margin-top: 80px;
+//   animation: highlight 1.5s ease;
+// }
+
+// @keyframes highlight {
+//   from { background: rgba(0, 174, 239, 0.3); }
+//   to { background: transparent; }
+// }

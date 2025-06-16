@@ -1,0 +1,146 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+      <div class="navbar-container">
+        <!-- Logo -->
+        <div class="navbar-brand">
+          <a routerLink="/" class="brand-link">
+            <div class="logo">
+              <span class="logo-icon">🔧</span>
+              <span class="logo-text">Plomberie PACA</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="navbar-menu desktop-menu">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+                Accueil
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/services" routerLinkActive="active" class="nav-link">
+                Services
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/tarifs" routerLinkActive="active" class="nav-link">
+                Tarifs
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/zones" routerLinkActive="active" class="nav-link">
+                Zones
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/avis" routerLinkActive="active" class="nav-link">
+                Avis
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/contact" routerLinkActive="active" class="nav-link">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="navbar-cta desktop-cta">
+          <a href="tel:+33123456789" class="cta-btn cta-primary">
+            <span class="cta-icon">📞</span>
+            <span class="cta-text">Urgence 24h/24</span>
+          </a>
+          <a routerLink="/devis" class="cta-btn cta-secondary">
+            <span class="cta-icon">📩</span>
+            <span class="cta-text">Devis Gratuit</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="mobile-toggle"
+          (click)="toggleMobileMenu()"
+          [class.active]="isMobileMenuOpen"
+          aria-label="Toggle navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" [class.open]="isMobileMenuOpen">
+        <div class="mobile-menu-content">
+          <ul class="mobile-nav">
+            <li class="mobile-nav-item">
+              <a routerLink="/"
+                 routerLinkActive="active"
+                 [routerLinkActiveOptions]="{exact: true}"
+                 class="mobile-nav-link"
+                 (click)="closeMobileMenu()">
+                Accueil
+              </a>
+            </li>
+            <li class="mobile-nav-item">
+              <a routerLink="/services"
+                 routerLinkActive="active"
+                 class="mobile-nav-link"
+                 (click)="closeMobileMenu()">
+                Services
+              </a>
+            </li>
+            <li class="mobile-nav-item">
+              <a routerLink="/tarifs"
+                 routerLinkActive="active"
+                 class="mobile-nav-link"
+                 (click)="closeMobileMenu()">
+                Tarifs
+              </a>
+            </li>
+            <li class="mobile-nav-item">
+              <a routerLink="/zones"
+                 routerLinkActive="active"
+                 class="mobile-nav-link"
+                 (click)="closeMobileMenu()">
+                Zones d'intervention
+              </a>
+            </li>
+            <li class="mobile-nav-item">
+              <a routerLink="/avis"
+                 routerLinkActive="active"
+                 class="mobile-nav-link"
+                 (click)="closeMobileMenu()">
+                Avis clients
+              </a>
+            </li>
+            <li class="mobile-nav-item">
+              <a routerLink="/contact"
+                 routerLinkActive="active"
+                 class="mobile-nav-link"
+                 (click)="closeMobileMenu()">
+                Contact
+              </a>
+            </li>
+          </ul>
+
+          <!-- Mobile CTA -->
+          <div class="mobile-cta">
+            <a href="tel:+33123456789" class="mobile-cta-btn primary" (click)="closeMobileMenu()">
+              <span class="cta-icon">📞</span>
+              <span>Appel d'urgence 24h/24</span>
+            </a>
+            <a routerLink="/devis" class="mobile-cta-btn secondary" (click)="closeMobileMenu()">
+              <span class="cta-icon">📩</span>
+              <span>Devis gratuit en ligne</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-overlay"
+           [class.open]="isMobileMenuOpen"
+           (click)="closeMobileMenu()"></div>
+    </nav>

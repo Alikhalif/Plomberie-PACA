@@ -1,0 +1,70 @@
+<section class="zones-section">
+  <!-- Background Effects -->
+  <div class="background-effects">
+    <div class="map-pin"></div>
+    <div class="map-pin delay-1"></div>
+    <div class="map-pin delay-2"></div>
+  </div>
+
+  <div class="container">
+    <!-- Hero Header -->
+    <div class="zones-hero">
+      <div class="hero-content animate-fade-in-up">
+        <div class="hero-badge">
+          <span class="badge-icon">📍</span>
+          <span>Zone d'intervention</span>
+        </div>
+        <h1 class="hero-title">
+          Nous couvrons toute la <span class="title-highlight">région PACA</span>
+        </h1>
+        <p class="hero-subtitle">
+          Intervention rapide de plombier dans toutes les principales villes
+          <br>
+          Délai moyen : <strong>{{ responseTime }}</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- Department Grid -->
+    <div class="department-grid">
+      <div
+        class="department-card"
+        *ngFor="let zone of interventionZones; let i = index"
+        [style.animation-delay.ms]="i * 150"
+        [style.--gradient]="zone.color">
+
+        <!-- Card Header -->
+        <div class="department-header">
+          <div class="department-icon">{{ zone.icon }}</div>
+          <h3 class="department-title">{{ zone.department }}</h3>
+        </div>
+
+        <!-- Cities List -->
+        <ul class="cities-list">
+          <li
+            class="city-item"
+            *ngFor="let city of zone.cities; let j = index"
+            [style.animation-delay.ms]="(i * 150) + (j * 50)">
+            <span class="city-marker">•</span>
+            {{ city }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Response Time Banner -->
+    <div class="response-banner animate-slide-in-up">
+      <div class="banner-content">
+        <div class="banner-icon">⏱️</div>
+        <div class="banner-text">
+          <h3>Délai d'intervention garanti</h3>
+          <p>{{ responseTime }} - 24h/24, 7j/7</p>
+        </div>
+        <a href="tel:+33412345678" class="banner-cta">
+          <span class="phone-icon">📞</span>
+          <span>Appel urgent</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

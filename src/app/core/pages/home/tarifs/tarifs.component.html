@@ -1,0 +1,82 @@
+<section class="tarifs-section">
+  <!-- Background Effects -->
+  <div class="background-effects">
+    <div class="water-droplet"></div>
+    <div class="water-droplet delay-1"></div>
+    <div class="water-droplet delay-2"></div>
+  </div>
+
+  <div class="container">
+    <!-- Hero Header -->
+    <div class="tarifs-hero">
+      <div class="hero-content animate-fade-in-up">
+        <div class="hero-badge">
+          <span class="badge-icon">💰</span>
+          <span>Tarifs transparents</span>
+        </div>
+        <h1 class="hero-title">
+          Nos <span class="title-highlight">tarifs & forfaits</span>
+        </h1>
+        <p class="hero-subtitle">
+          Des prix clairs et affichés, sans mauvaise surprise.
+          <br>
+          Déplacement offert si intervention.
+        </p>
+      </div>
+    </div>
+
+    <!-- Pricing Grid -->
+    <div class="pricing-grid">
+      <div
+        class="pricing-card"
+        *ngFor="let plan of pricingPlans; let i = index"
+        [style.animation-delay.ms]="i * 200">
+
+        <!-- Card Header -->
+        <div class="pricing-header" [style.background]="plan.gradient">
+          <div class="pricing-icon">{{ plan.icon }}</div>
+          <h3 class="pricing-title">{{ plan.title }}</h3>
+        </div>
+
+        <!-- Pricing Items -->
+        <div class="pricing-body">
+          <ul class="pricing-items">
+            <li
+              class="pricing-item"
+              *ngFor="let item of plan.items; let j = index"
+              [class.popular]="item.popular"
+              [style.animation-delay.ms]="(i * 200) + (j * 100)">
+
+              <div class="item-content">
+                <span class="item-name">{{ item.name }}</span>
+                <span class="item-price">{{ item.price }}</span>
+              </div>
+              <div class="popular-tag" *ngIf="item.popular">
+                <span class="star">⭐</span>
+                Le plus demandé
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Notes -->
+    <div class="pricing-notes animate-slide-in-up">
+      <div class="note" *ngFor="let note of pricingNotes">
+        <span class="check-icon">✅</span>
+        {{ note }}
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="tarifs-cta animate-fade-in">
+      <h3>Besoin d'un devis précis pour votre situation ?</h3>
+      <p>Nos experts répondent sous 30 minutes</p>
+      <a routerLink="/contact" class="cta-button">
+        <span class="cta-icon">📩</span>
+        <span>Demander un devis gratuit</span>
+      </a>
+    </div>
+  </div>
+</section>

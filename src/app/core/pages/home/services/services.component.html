@@ -1,0 +1,133 @@
+<section class="services-section">
+      <!-- Hero Header -->
+      <div class="services-hero">
+        <div class="container">
+          <div class="hero-content animate-fade-in-up">
+            <div class="hero-badge">
+              <span class="badge-icon">🛠️</span>
+              <span>Nos prestations complètes</span>
+            </div>
+            <h1 class="hero-title">
+              Tous vos travaux de
+              <span class="title-highlight">plomberie</span>
+              <br>
+              par des experts certifiés
+            </h1>
+            <p class="hero-subtitle">
+              Dépannage urgent, installation, rénovation ou maintenance :
+              notre équipe intervient rapidement avec du matériel professionnel.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="services-content">
+        <div class="container">
+          <div class="services-grid">
+            <div
+              class="service-card"
+              *ngFor="let service of servicesData; let i = index"
+              [class.urgent]="service.urgency === 'high'"
+              [style.animation-delay.s]="i * 0.2"
+              #serviceCard>
+
+              <!-- Service Header -->
+              <div class="service-header" [style.background]="service.gradient">
+                <div class="service-icon-wrapper">
+                  <div class="service-icon">{{ service.icon }}</div>
+                  <div class="urgency-badge" *ngIf="service.urgency === 'high'">
+                    <span class="urgency-pulse"></span>
+                    URGENT
+                  </div>
+                </div>
+                <div class="service-title-section">
+                  <h3 class="service-title">{{ service.title }}</h3>
+                  <div class="service-availability">
+                    <span class="availability-dot"></span>
+                    {{ service.availability }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Service Details -->
+              <div class="service-body">
+                <div class="service-items">
+                  <div
+                    class="service-item"
+                    *ngFor="let item of service.services; let j = index"
+                    [class.popular]="item.popular"
+                    [style.animation-delay.s]="(i * 0.2) + (j * 0.1)">
+                    <div class="item-icon">{{ item.icon }}</div>
+                    <div class="item-content">
+                      <h4 class="item-name">{{ item.name }}</h4>
+                      <p class="item-description">{{ item.description }}</p>
+                      <div class="popular-tag" *ngIf="item.popular">
+                        <span class="star">⭐</span>
+                        Le plus demandé
+                      </div>
+                    </div>
+                    <div class="item-arrow">→</div>
+                  </div>
+                </div>
+
+                <!-- Service CTA -->
+                <div class="service-cta">
+                  <a href="tel:+33123456789" class="cta-urgent" *ngIf="service.urgency === 'high'">
+                    <span class="cta-icon">📞</span>
+                    <span class="cta-text">Intervention immédiate</span>
+                    <span class="cta-badge">24h/24</span>
+                  </a>
+                  <a routerLink="/devis" class="cta-devis" *ngIf="service.urgency !== 'high'">
+                    <span class="cta-icon">📩</span>
+                    <span class="cta-text">Demander un devis</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Choose Us Section -->
+      <div class="why-choose-section">
+        <div class="container">
+          <div class="why-choose-content">
+            <h2 class="section-title animate-fade-in-up">
+              Pourquoi choisir nos services ?
+            </h2>
+            <div class="advantages-grid">
+              <div
+                class="advantage-card animate-slide-in-left"
+                *ngFor="let advantage of advantages; let i = index"
+                [style.animation-delay.s]="i * 0.2">
+                <div class="advantage-icon">{{ advantage.icon }}</div>
+                <h3 class="advantage-title">{{ advantage.title }}</h3>
+                <p class="advantage-text">{{ advantage.text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emergency CTA Banner -->
+      <div class="emergency-banner">
+        <div class="container">
+          <div class="banner-content">
+            <div class="banner-left">
+              <div class="emergency-icon">🚨</div>
+              <div class="emergency-text">
+                <h3>Urgence plomberie ?</h3>
+                <p>Nous intervenons en moins de 2h partout en PACA</p>
+              </div>
+            </div>
+            <div class="banner-right">
+              <a href="tel:+33123456789" class="emergency-cta">
+                <span class="phone-icon">📱</span>
+                <span class="phone-text">Appeler maintenant</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
