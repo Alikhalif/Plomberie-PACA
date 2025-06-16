@@ -22,22 +22,22 @@ export class ContactComponent {
     {
       icon: '📞',
       title: 'Appel téléphonique',
-      value: '+33412345678',
-      action: 'tel:+33412345678',
+      value: '+33756935200',
+      action: 'tel:+33756935200',
       color: 'linear-gradient(135deg, #2563eb, #1e40af)'
     },
     {
       icon: '💬',
       title: 'WhatsApp',
-      value: '06 12 34 56 78',
-      action: 'https://wa.me/33612345678',
+      value: '07 56 93 52 00',
+      action: 'https://wa.me/33756935200',
       color: 'linear-gradient(135deg, #25D366, #128C7E)'
     },
     {
       icon: '📧',
       title: 'Email',
-      value: 'contact@plomberie-paca.fr',
-      action: 'mailto:contact@plomberie-paca.fr',
+      value: 'contact@depannageplomberie-paca.com',
+      action: 'mailto:contact@depannageplomberie-paca.com',
       color: 'linear-gradient(135deg, #EA4335, #BB001B)'
     }
   ];

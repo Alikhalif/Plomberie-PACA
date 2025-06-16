@@ -1,0 +1,194 @@
+<footer class="footer-section">
+  <!-- Background Effects -->
+  <div class="footer-background">
+    <div class="water-drop"></div>
+    <div class="water-drop delay-1"></div>
+    <div class="water-drop delay-2"></div>
+    <div class="water-drop delay-3"></div>
+  </div>
+
+  <div class="container">
+    <!-- Emergency Banner -->
+    <div class="emergency-banner animate-fade-in-up">
+      <div class="emergency-content">
+        <div class="emergency-icon">🚨</div>
+        <div class="emergency-text">
+          <h3>Urgence plomberie ?</h3>
+          <p>Intervention {{ contactInfo.responseTime }} - {{ contactInfo.responseTime }}</p>
+        </div>
+        <button
+          class="emergency-btn"
+          (click)="onEmergencyCall()"
+          type="button">
+          <span class="phone-pulse">📞</span>
+          <span>{{ contactInfo.phone }}</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Footer Content -->
+    <div class="footer-main">
+      <div class="footer-grid">
+
+        <!-- Company Info -->
+        <div class="footer-column company-info animate-slide-in-up">
+          <div class="company-logo">
+            <div class="logo-icon">🔧</div>
+            <h3 class="company-name">Plomberie PACA</h3>
+          </div>
+          <p class="company-description">
+            Votre plombier de confiance en région PACA.
+            Intervention rapide, tarifs transparents,
+            satisfaction garantie depuis plus de 10 ans.
+          </p>
+
+          <!-- Contact Quick Info -->
+          <div class="contact-quick">
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <span>{{ contactInfo.address }}</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <a
+                href="mailto:{{ contactInfo.email }}"
+                class="contact-link">
+                {{ contactInfo.email }}
+              </a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">⏱️</span>
+              <span>Délai moyen : {{ contactInfo.responseTime }}</span>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="certifications">
+            <div class="cert-badge">✅ Artisan certifié</div>
+            <div class="cert-badge">✅ Devis gratuit</div>
+            <div class="cert-badge">✅ Garantie travaux</div>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-column animate-slide-in-up" style="animation-delay: 0.1s">
+          <h4 class="column-title">
+            <span class="title-icon">🛠️</span>
+            Nos Services
+          </h4>
+          <ul class="footer-list">
+            <li
+              class="list-item"
+              *ngFor="let service of services; let i = index"
+              [style.animation-delay.ms]="(i * 100) + 200">
+              <a [href]="service.link" class="footer-link">
+                <span class="link-marker">•</span>
+                {{ service.name }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Zones d'intervention -->
+        <div class="footer-column animate-slide-in-up" style="animation-delay: 0.2s">
+          <h4 class="column-title">
+            <span class="title-icon">📍</span>
+            Zones d'intervention
+          </h4>
+          <ul class="footer-list">
+            <li
+              class="list-item"
+              *ngFor="let zone of zones; let i = index"
+              [style.animation-delay.ms]="(i * 100) + 300">
+              <a [href]="zone.link" class="footer-link">
+                <span class="link-marker">•</span>
+                {{ zone.name }}
+              </a>
+            </li>
+          </ul>
+          <div class="coverage-badge">
+            <span class="badge-icon">🗺️</span>
+            <span>Toute la région PACA</span>
+          </div>
+        </div>
+
+        <!-- Liens rapides -->
+        <div class="footer-column animate-slide-in-up" style="animation-delay: 0.3s">
+          <h4 class="column-title">
+            <span class="title-icon">⚡</span>
+            Liens rapides
+          </h4>
+          <ul class="footer-list">
+            <li
+              class="list-item"
+              *ngFor="let link of quickLinks; let i = index"
+              [style.animation-delay.ms]="(i * 100) + 400">
+              <a [href]="link.link" class="footer-link">
+                <span class="link-marker">•</span>
+                {{ link.name }}
+              </a>
+            </li>
+          </ul>
+
+          <!-- Social Links -->
+          <div class="social-section">
+            <h5 class="social-title">Suivez-nous</h5>
+            <div class="social-links">
+              <button
+                *ngFor="let social of socialLinks"
+                class="social-btn"
+                [style.--social-color]="social.color"
+                (click)="onSocialClick(social.link)"
+                [title]="social.name"
+                type="button">
+                <span class="social-icon">{{ social.icon }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="footer-cta animate-fade-in-up" style="animation-delay: 0.5s">
+      <div class="cta-content">
+        <div class="cta-text">
+          <h3>Besoin d'un devis gratuit ?</h3>
+          <p>Réponse en 30 minutes maximum</p>
+        </div>
+        <div class="cta-buttons">
+          <a href="/devis" class="cta-btn primary">
+            <span class="btn-icon">📩</span>
+            <span>Demander un devis</span>
+          </a>
+          <button
+            class="cta-btn secondary"
+            (click)="onEmergencyCall()"
+            type="button">
+            <span class="btn-icon">📞</span>
+            <span>Appel immédiat</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="bottom-content">
+        <div class="copyright">
+          <p>&copy; {{ currentYear }} Plomberie PACA. Tous droits réservés.</p>
+        </div>
+        <div class="legal-links">
+          <a href="/mentions-legales" class="legal-link">Mentions légales</a>
+          <a href="/confidentialite" class="legal-link">Confidentialité</a>
+          <a href="/cgv" class="legal-link">CGV</a>
+        </div>
+        <div class="bottom-contact">
+          <span class="bottom-phone">📞 {{ contactInfo.phone }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>

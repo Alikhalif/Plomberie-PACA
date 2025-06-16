@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -10,6 +11,10 @@ import { RouterModule } from '@angular/router';
   styleUrl: './top-bar.component.scss'
 })
 export class TopBarComponent implements OnInit{
+
+  private router = inject(Router);
+  private navService = inject(NavigationService);
+
   isMobileMenuOpen = false;
   isScrolled = false;
 
@@ -35,5 +40,15 @@ export class TopBarComponent implements OnInit{
   closeMobileMenu() {
     this.isMobileMenuOpen = false;
     document.body.style.overflow = 'auto';
+  }
+
+  navigateAndClose(route: string): void {
+    this.router.navigate([route]);
+    this.closeMobileMenu();
+  }
+
+  navigateTo(section: string) {
+    this.navService.navigateTo(section);
+    this.closeMobileMenu();
   }
 }
