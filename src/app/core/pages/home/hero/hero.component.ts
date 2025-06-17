@@ -1,5 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, HostListener, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -10,7 +11,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './hero.component.scss'
 })
 export class HeroComponent implements OnInit, OnDestroy {
-  isVisible = false;
+  isVisible = true;
 
   features = [
     { icon: '⚡', text: 'Intervention urgente sous 2h' },
@@ -21,7 +22,22 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   private animationInterval: any;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private title: Title, private meta: Meta
+  ) {
+    this.title.setTitle('Plombier 24h/24 – Intervention rapide en PACA | Plomberie-PACA.fr');
+
+    this.meta.addTags([
+      { name: 'description', content: 'Plombier en région PACA – Dépannage rapide, installation, rénovation et recherche de fuite. Interventions en moins de 2h.' },
+      { name: 'keywords', content: 'plombier PACA, urgence plomberie, dépannage fuite, plombier Marseille, Aix, Toulon, Nice, PACA' },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'og:title', content: 'Plombier PACA – Urgences 24h/24 | Plomberie-PACA.fr' },
+      { property: 'og:description', content: 'Un plombier de confiance en région PACA. Intervention rapide, devis gratuit et techniciens certifiés.' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://www.depannageplomberie-paca.com/home' },
+    ]);
+  }
 
 
   ngOnInit() {
@@ -29,7 +45,7 @@ export class HeroComponent implements OnInit, OnDestroy {
     if (isPlatformBrowser(this.platformId)) {
       setTimeout(() => {
         this.isVisible = true;
-      }, 100);
+      }, 10);
       this.startShapeAnimation();
     }
   }

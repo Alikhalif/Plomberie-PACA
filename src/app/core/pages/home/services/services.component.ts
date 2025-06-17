@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 
@@ -180,6 +181,14 @@ export class ServicesComponent {
   ];
 
   private observer!: IntersectionObserver;
+
+  constructor(private title: Title, private meta: Meta){
+    this.title.setTitle('Nos services de plomberie en PACA | depannageplomberie-paca.com');
+    this.meta.addTags([
+      { name: 'description', content: 'Découvrez nos prestations : dépannage 24h/24, rénovation, entretien et recherche de fuite dans toute la région PACA.' },
+      { name: 'keywords', content: 'services plomberie PACA, dépannage, rénovation salle de bain, fuite eau, chauffe-eau, entretien plomberie' }
+    ]);
+  }
 
   ngOnInit() {
     this.setupScrollAnimations();

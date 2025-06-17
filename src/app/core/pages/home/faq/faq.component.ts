@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Meta, Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -55,6 +56,15 @@ export class FAQComponent {
       isOpen: false
     }
   ];
+
+
+  constructor(private title: Title, private meta: Meta) {
+    this.title.setTitle('FAQ – Vos questions sur nos services de plomberie | depannageplomberie-paca.com');
+    this.meta.addTags([
+      { name: 'description', content: 'Découvrez nos réponses aux questions fréquentes : urgences, coûts, délais, week-ends, et procédures à suivre.' },
+      { name: 'keywords', content: 'FAQ plomberie PACA, urgence plomberie, couper l’eau fuite, tarif plombier' }
+    ]);
+  }
 
   toggleFAQ(index: number) {
     this.faqItems[index].isOpen = !this.faqItems[index].isOpen;

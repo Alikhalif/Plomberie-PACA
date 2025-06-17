@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-avis',
@@ -47,4 +48,11 @@ export class AvisComponent {
   averageRating = 4.9; // Calculated average
   totalReviews = 128; // Total number of reviews
 
+  constructor(private title: Title, private meta: Meta) {
+    this.title.setTitle('Avis clients – Plombier fiable en PACA | depannageplomberie-paca.com');
+    this.meta.addTags([
+      { name: 'description', content: 'Nos clients témoignent : interventions rapides, travail propre, tarifs justes. Découvrez leurs avis sur nos prestations de plomberie en PACA.' },
+      { name: 'keywords', content: 'avis plombier PACA, témoignages clients plomberie, service plomberie Marseille, Toulon, Nice' }
+    ]);
+  }
 }

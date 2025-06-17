@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tarifs',
@@ -51,4 +52,13 @@ export class TarifsComponent {
     'Prix TTC pour interventions standard',
     'Devis gratuit sous 30 minutes'
   ];
+
+
+  constructor(private title: Title, private meta: Meta) {
+    this.title.setTitle('Tarifs plomberie clairs et sans surprise | depannageplomberie-paca.com');
+    this.meta.addTags([
+      { name: 'description', content: 'Consultez nos prix : fuite sous évier, débouchage, remplacement chauffe-eau. Devis gratuits et déplacement offert si intervention.' },
+      { name: 'keywords', content: 'tarifs plomberie PACA, prix dépannage fuite, devis plombier, coût intervention plomberie' }
+    ]);
+  }
 }

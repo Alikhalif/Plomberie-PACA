@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-zones-intervention',
@@ -43,4 +44,12 @@ export class ZonesInterventionComponent {
   ];
 
   responseTime = '1h à 2h selon secteur';
+
+  constructor(private title: Title, private meta: Meta) {
+    this.title.setTitle('Zones d’intervention – Plombier en PACA | depannageplomberie-paca.com');
+    this.meta.addTags([
+      { name: 'description', content: 'Nous intervenons à Marseille, Toulon, Nice, Avignon et dans toute la région PACA. Intervention rapide entre 1h et 2h.' },
+      { name: 'keywords', content: 'plombier Marseille, plombier Toulon, plombier PACA, intervention plomberie PACA, dépannage plomberie PACA' }
+    ]);
+  }
 }

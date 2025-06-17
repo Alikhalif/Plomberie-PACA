@@ -8,13 +8,39 @@ import { ContactComponent } from "./contact/contact.component";
 import { FAQComponent } from "./faq/faq.component";
 import { ViewportScroller } from '@angular/common';
 import { Router } from '@angular/router';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [HeroComponent, ServicesComponent, TarifsComponent, ZonesInterventionComponent, AvisComponent, ContactComponent, FAQComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        query('.section-component', [
+          style({ opacity: 0, transform: 'translateY(30px)' }),
+          stagger('100ms', [
+            animate('600ms cubic-bezier(0.4, 0, 0.2, 1)',
+            style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ], { optional: true })
+      ])
+    ]),
+    trigger('scrollAnimation', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0, transform: 'translateY(50px)' }),
+          stagger('100ms', [
+            animate('500ms ease-out',
+            style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ], { optional: true })
+      ])
+    ])
+  ]
 })
 export class HomeComponent {
   private viewportScroller = inject(ViewportScroller);

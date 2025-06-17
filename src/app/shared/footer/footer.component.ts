@@ -38,18 +38,12 @@ export class FooterComponent {
 
   // Social links
   socialLinks = [
-    {
-      name: 'WhatsApp',
-      icon: '💬',
-      link: 'https://wa.me/33756935200',
-      color: '#25D366'
-    },
-    {
-      name: 'Google Business',
-      icon: '📍',
-      link: 'https://business.google.com',
-      color: '#4285F4'
-    },
+    // {
+    //   name: 'Google Business',
+    //   icon: '📍',
+    //   link: 'https://business.google.com',
+    //   color: '#4285F4'
+    // },
   ];
 
   // Contact info
