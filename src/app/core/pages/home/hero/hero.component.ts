@@ -26,13 +26,13 @@ export class HeroComponent implements OnInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: Object,
     private title: Title, private meta: Meta
   ) {
-    this.title.setTitle('Plombier 24h/24 – Intervention rapide en PACA | Plomberie-PACA.fr');
+    this.title.setTitle('Plombier 24h/24 – Intervention rapide en PACA | depannageplomberie-paca.com');
 
     this.meta.addTags([
       { name: 'description', content: 'Plombier en région PACA – Dépannage rapide, installation, rénovation et recherche de fuite. Interventions en moins de 2h.' },
       { name: 'keywords', content: 'plombier PACA, urgence plomberie, dépannage fuite, plombier Marseille, Aix, Toulon, Nice, PACA' },
       { name: 'robots', content: 'index, follow' },
-      { property: 'og:title', content: 'Plombier PACA – Urgences 24h/24 | Plomberie-PACA.fr' },
+      { property: 'og:title', content: 'Plombier PACA – Urgences 24h/24 | depannageplomberie-paca.com' },
       { property: 'og:description', content: 'Un plombier de confiance en région PACA. Intervention rapide, devis gratuit et techniciens certifiés.' },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://www.depannageplomberie-paca.com/home' },

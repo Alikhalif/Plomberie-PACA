@@ -170,6 +170,7 @@ $desktop: 1200px;
   .form-title {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     font-size: 1.5rem;
     color: $dark-color;
