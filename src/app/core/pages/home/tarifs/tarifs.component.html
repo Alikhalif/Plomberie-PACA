@@ -49,7 +49,7 @@
 
               <div class="item-content">
                 <span class="item-name">{{ item.name }}</span>
-                <span class="item-price">{{ item.price }}</span>
+                <!-- <span class="item-price">{{ item.price }}</span> -->
               </div>
               <div class="popular-tag" *ngIf="item.popular">
                 <span class="star">⭐</span>
@@ -58,6 +58,14 @@
             </li>
           </ul>
         </div>
+
+        <div class="zone-footer">
+              <button class="contact-btn" (click)="callEmergency()">
+                <span class="btn-icon">📞</span>
+                <span class="btn-text">Contacter</span>
+                <div class="btn-ripple"></div>
+              </button>
+            </div>
       </div>
     </div>
 
@@ -69,6 +77,6 @@
       </div>
     </div>
 
-    
+
   </div>
 </section>

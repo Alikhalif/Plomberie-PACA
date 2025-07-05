@@ -61,4 +61,9 @@ export class TarifsComponent {
       { name: 'keywords', content: 'tarifs plomberie PACA, prix dépannage fuite, devis plombier, coût intervention plomberie' }
     ]);
   }
+
+
+  callEmergency() {
+    window.location.href = 'tel:+33756935200';
+  }
 }
